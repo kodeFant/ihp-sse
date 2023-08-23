@@ -6,9 +6,9 @@ import Web.View.Layout (defaultLayout)
 
 -- Controller Imports
 import Web.Controller.Static
+import IHP.LocalRefresh ( initLocalRefresh )
 import Web.Controller.SSE
-import Network.Minio (SSE)
-import Data.Semigroupoid.Static (Static)
+
 
 instance FrontController WebApplication where
     controllers = 
@@ -22,3 +22,4 @@ instance InitControllerContext WebApplication where
     initContext = do
         setLayout defaultLayout
         initAutoRefresh
+        initLocalRefresh
