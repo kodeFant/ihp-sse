@@ -24,6 +24,18 @@ document.addEventListener('DOMContentLoaded', function () {
     eventSource = initializeEventSource();
 });
 
+document.addEventListener('turbolinks:before-cache', function () {
+    closeEventSource();
+});
+
+
+function closeEventSource() {
+    console.log("Closing connection.");
+    if (eventSource != null) {
+        eventSource.close();
+    }
+}
+
 $(document).on('turbolinks:before-render turbolinks:before-visit beforeunload', function () {
     console.log("Closing connection.");
     if (eventSource != null) {
