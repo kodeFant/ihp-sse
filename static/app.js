@@ -14,6 +14,14 @@ function initializeEventSource() {
     return eventSource;
 }
 
+
+function closeEventSource() {
+    console.log("Closing connection.");
+    if (eventSource != null) {
+        eventSource.close();
+    }
+}
+
 let eventSource = initializeEventSource();
 
 document.addEventListener('turbolinks:load', function () {
@@ -28,16 +36,13 @@ document.addEventListener('turbolinks:before-cache', function () {
     closeEventSource();
 });
 
-function closeEventSource() {
-    console.log("Closing connection.");
-    if (eventSource != null) {
-        eventSource.close();
-    }
-}
-
-$(document).on('turbolinks:before-render turbolinks:before-visit beforeunload', function () {
-    console.log("Closing connection.");
-    if (eventSource != null) {
-        eventSource.close();
-    }
+document.addEventListener('turbolinks:before-visit', function () {
+    closeEventSource();
 });
+
+
+document.addEventListener('beforeunload', function () {
+    closeEventSource();
+});
+
+
