@@ -14,6 +14,7 @@ function initializeEventSource() {
     return eventSource;
 }
 
+let eventSource = initializeEventSource();
 
 function closeEventSource() {
     console.log("Closing connection.");
@@ -21,8 +22,6 @@ function closeEventSource() {
         eventSource.close();
     }
 }
-
-let eventSource = initializeEventSource();
 
 document.addEventListener('turbolinks:load', function () {
     eventSource = initializeEventSource()
