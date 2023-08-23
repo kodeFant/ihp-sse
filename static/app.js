@@ -28,7 +28,6 @@ document.addEventListener('turbolinks:before-cache', function () {
     closeEventSource();
 });
 
-
 function closeEventSource() {
     console.log("Closing connection.");
     if (eventSource != null) {

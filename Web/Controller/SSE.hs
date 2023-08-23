@@ -20,6 +20,7 @@ instance Controller SSEController where
                 sendChunk (B.stringUtf8 "data: Connection established!\n\n") >> flush
                 forever $ do
                     threadDelay (3 * 1000000)
+                    -- TODO: Eventually replace with :heartbeat
                     sendChunk (B.stringUtf8 "data: Hello world\n\n") >> flush
 
                 
