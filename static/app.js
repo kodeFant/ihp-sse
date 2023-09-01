@@ -1,6 +1,5 @@
 document.addEventListener('turbolinks:load', () => {
     htmx.process(document.body);
-    // _hyperscript.processNode(document.body);
 });
 
 
