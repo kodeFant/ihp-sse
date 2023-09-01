@@ -6,7 +6,7 @@ import Network.HTTP.Types (status200)
 import Network.HTTP.Types.Header ( hContentType )
 import Network.Wai
 import qualified Data.ByteString.Builder as B
-import qualified IHP.DBvent as DBEvent
+import qualified IHP.DBEvent as DBEvent
 
 instance Controller SSEController where
     

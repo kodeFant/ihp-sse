@@ -10,7 +10,7 @@ import Web.Controller.Static
 import Web.Controller.SSE
 import Network.Minio (SSE)
 import Data.Semigroupoid.Static (Static)
-import Application.Helper.DbEvent (initDbEvents)
+import IHP.DBEvent (initDbEvents)
 
 instance FrontController WebApplication where
     controllers = 
