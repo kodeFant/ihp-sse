@@ -8,7 +8,15 @@ data WebApplication = WebApplication deriving (Eq, Show)
 
 
 data StaticController = WelcomeAction
-                      | ByeAction
                       deriving (Eq, Show, Data)
 
-data SSEController = StreamEventsAction deriving (Eq, Show, Data)
+data SSEController 
+    = StreamPostsEvents
+    deriving (Eq, Show, Data)
+
+
+data PostsController
+    = PostsAction
+    | CreatePostAction
+    | DeletePostAction { postId :: !(Id Post) }
+    deriving (Eq, Show, Data)

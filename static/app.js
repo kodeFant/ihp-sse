@@ -1,5 +1,11 @@
+document.addEventListener('turbolinks:load', () => {
+    htmx.process(document.body);
+    // _hyperscript.processNode(document.body);
+});
+
+
 function initializeEventSource() {
-    const eventSource = new EventSource("/StreamEvents");
+    const eventSource = new EventSource("/StreamPostsEvents");
 
     eventSource.onopen = function () {
         console.log("Connection opened.");
@@ -10,6 +16,16 @@ function initializeEventSource() {
     eventSource.onmessage = function (event) {
         console.log("Received message:", event.data);
     };
+
+    eventSource.addEventListener('ping', function (e) {
+        console.log('ping', e.data);
+    }, false);
+
+    eventSource.addEventListener('posts_updated', function (e) {
+        const notificationSound = new Audio("/msn-sound.wav")
+        notificationSound.play();
+        console.log('posts_Updated', e);
+    }, false);
 
     return eventSource;
 }

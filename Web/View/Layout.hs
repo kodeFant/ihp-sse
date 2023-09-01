@@ -43,6 +43,8 @@ stylesheets = [hsx|
 scripts :: Html
 scripts = [hsx|
         {when isDevelopment devScripts}
+         <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+        <script src="https://unpkg.com/htmx.org/dist/ext/sse.js"></script>
         <script src={assetPath "/vendor/jquery-3.6.0.slim.min.js"}></script>
         <script src={assetPath "/vendor/timeago.js"}></script>
         <script src={assetPath "/vendor/popper-2.11.6.min.js"}></script>
