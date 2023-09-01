@@ -19,7 +19,10 @@ instance View WelcomeView where
         </p>
         <button hx-post={pathTo CreatePostAction} hx-swap="none" hx-include="closest form" type="submit">Submit</button>
     </form>
-
+        <!-- Here you can notice htmx hooking onto the SSE endpoint with the htmx SSE extension.
+             Children events can then be triggered by subscribing to the SSE event, and the hx-get calls the endpoint that will hydrate the view with updated data.
+             The htmx SSE extension will automatically reconnect to the SSE endpoint if the connection is lost.
+        -->
         <div class="col" hx-ext="sse" {...[("sse-connect", pathTo StreamPostsEvents)]}>
             <div class="row gap-2 text-center">
 
