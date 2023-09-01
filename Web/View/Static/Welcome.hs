@@ -41,7 +41,7 @@ instance View WelcomeView where
                 <div class="col card py-2 ">
                     SSE updated post count: 
                     <strong 
-                        class="badge bg-secondary fs-1"
+                        class="badge bg-success fs-1"
                         hx-get={PostsCountAction} 
                         hx-trigger="sse:posts_updated"
                     >
