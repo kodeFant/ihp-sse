@@ -11,5 +11,5 @@ import qualified IHP.DBEvent as DBEvent
 instance Controller SSEController where
     
     action StreamPostsEvents =  withTableReadTracker do
-        query @Post |> fetch
+        trackTableRead "posts"
         DBEvent.respondDbEvent "posts_updated"

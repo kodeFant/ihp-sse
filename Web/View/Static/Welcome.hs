@@ -22,14 +22,33 @@ instance View WelcomeView where
 
         <div class="col" hx-ext="sse" {...[("sse-connect", pathTo StreamPostsEvents)]}>
             <div class="row gap-2 text-center">
+
+                <!-- The static counter that requires you to refresh the page to update -->
                 <div class="col card py-2">
-                    Static post count: <strong class="badge bg-secondary fs-1">{length posts}</strong>
+                    Static post count: 
+                    <strong 
+                        class="badge bg-secondary fs-1"
+                    >
+                        {length posts}
+                    </strong>
                      <small>You need to refresh to see updated value</small>
                 </div>
+
+                <!-- Notice how little additional code is required to make the same an identical counter that is auto-synced -->
                 <div class="col card py-2 ">
-                    SSE updated post count: <strong class="badge bg-secondary fs-1"hx-get={PostsCountAction} hx-trigger="sse:posts_updated">{length posts}</strong>
+                    SSE updated post count: 
+                    <strong 
+                        class="badge bg-secondary fs-1"
+                        hx-get={PostsCountAction} 
+                        hx-trigger="sse:posts_updated"
+                    >
+                        {length posts}
+                    </strong>
                     <small>Always shows the correct value triggered by SSE</small>
                 </div>
+
+
+
             </div>
             <div hx-get={PostsAction} hx-trigger="sse:posts_updated">
                 {printPosts posts}
