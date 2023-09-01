@@ -20,6 +20,10 @@ instance Controller PostsController where
                     post <- post |> createRecord
                     renderPlain "ok"
 
+    action PostsCountAction = do
+        posts <- query @Post |> fetch
+        respondHtml $ Partials.printPostCount (length posts)
+
     action DeletePostAction { postId } = do
         post <- fetch postId
         deleteRecord post

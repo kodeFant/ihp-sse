@@ -17,6 +17,7 @@ data SSEController
 
 data PostsController
     = PostsAction
+    | PostsCountAction
     | CreatePostAction
     | DeletePostAction { postId :: !(Id Post) }
     deriving (Eq, Show, Data)

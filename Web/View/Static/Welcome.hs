@@ -19,7 +19,18 @@ instance View WelcomeView where
         </p>
         <button hx-post={pathTo CreatePostAction} hx-swap="none" hx-include="closest form" type="submit">Submit</button>
     </form>
+
         <div class="col" hx-ext="sse" {...[("sse-connect", pathTo StreamPostsEvents)]}>
+            <div class="row gap-2 text-center">
+                <div class="col card py-2">
+                    Static post count: <strong class="badge bg-secondary fs-1">{length posts}</strong>
+                     <small>You need to refresh to see updated value</small>
+                </div>
+                <div class="col card py-2 ">
+                    SSE updated post count: <strong class="badge bg-secondary fs-1"hx-get={PostsCountAction} hx-trigger="sse:posts_updated">{length posts}</strong>
+                    <small>Always shows the correct value triggered by SSE</small>
+                </div>
+            </div>
             <div hx-get={PostsAction} hx-trigger="sse:posts_updated">
                 {printPosts posts}
             </div>
