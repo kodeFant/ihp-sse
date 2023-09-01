@@ -20,10 +20,10 @@ instance View WelcomeView where
         <button hx-post={pathTo CreatePostAction} hx-swap="none" hx-include="closest form" type="submit">Submit</button>
     </form>
         <div class="col" hx-ext="sse" {...[("sse-connect", pathTo StreamPostsEvents)]}>
-        <div hx-get={PostsAction} hx-trigger="sse:posts_updated">
-            {printPosts posts}
+            <div hx-get={PostsAction} hx-trigger="sse:posts_updated">
+                {printPosts posts}
+            </div>
         </div>
-    </div>
     </div>
 
 
