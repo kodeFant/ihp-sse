@@ -5,7 +5,6 @@ import Generated.Types
 import Web.Types
 import Web.Routes
 
--- Here you can add functions which are available in all your views
 printPosts :: [Post] -> Html
 printPosts posts = [hsx|
     <ul>
