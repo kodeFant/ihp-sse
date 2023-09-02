@@ -4,5 +4,5 @@ import Web.View.Static.Welcome
 
 instance Controller StaticController where
     action WelcomeAction = do
-        posts <- query @Post |> fetch
+        posts <- query @Post |> orderBy #createdAt |> fetch
         render WelcomeView {..}

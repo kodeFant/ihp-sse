@@ -7,7 +7,7 @@ import qualified Application.Helper.Partials as Partials
 
 instance Controller PostsController where
     action PostsAction = do
-        posts <- query @Post |> fetch
+        posts <- query @Post |> orderBy #createdAt |> fetch
         respondHtml $ Partials.printPosts posts
 
     action CreatePostAction = do
