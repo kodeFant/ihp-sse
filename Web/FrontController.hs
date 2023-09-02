@@ -10,7 +10,7 @@ import Web.Controller.Static
 import Web.Controller.SSE
 import Network.Minio (SSE)
 import Data.Semigroupoid.Static (Static)
-import IHP.DBEvent (initDbEvents)
+import IHP.PGEventSource (initPgEventSource)
 
 instance FrontController WebApplication where
     controllers = 
@@ -25,6 +25,6 @@ instance InitControllerContext WebApplication where
     initContext = do
         setLayout defaultLayout
         initAutoRefresh
-        initDbEvents
+        initPgEventSource
 
 
