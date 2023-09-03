@@ -15,14 +15,14 @@ instance Controller PostsController where
         post
             |> buildPost
             |> ifValid \case
-                Left post -> renderPlain "ok"
+                Left post -> error "Error builidng post"
                 Right post -> do
                     post <- post |> createRecord
                     renderPlain "ok"
 
     action PostsCountAction = do
-        posts <- query @Post |> fetch
-        respondHtml $ Partials.printPostCount (length posts)
+        postsLength <- query @Post |> fetchCount
+        renderPlain $ postsLength |> show |> cs
 
     action DeletePostAction { postId } = do
         post <- fetch postId

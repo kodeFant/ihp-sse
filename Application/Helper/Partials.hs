@@ -21,6 +21,3 @@ printPost post =
         <button hx-delete={DeletePostAction post.id} hx-swap="none">Delete</button>
     </li>
     |]
-
-printPostCount :: Int -> Html
-printPostCount count = [hsx|{count}|]
