@@ -3,31 +3,31 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 
-function initializeEventSource() {
-    const eventSource = new EventSource("/StreamPostsEvents");
+// function initializeEventSource() {
+//     const eventSource = new EventSource("/StreamPostsEvents");
 
-    eventSource.onopen = function () {
-        console.log("Connection opened.");
-    };
-    eventSource.onerror = function (err) {
-        console.error("EventSource failed:", err);
-    };
-    eventSource.onmessage = function (event) {
-        console.log("Received message:", event.data);
-    };
+//     eventSource.onopen = function () {
+//         console.log("Connection opened.");
+//     };
+//     eventSource.onerror = function (err) {
+//         console.error("EventSource failed:", err);
+//     };
+//     eventSource.onmessage = function (event) {
+//         console.log("Received message:", event.data);
+//     };
 
-    eventSource.addEventListener('ping', function (e) {
-        console.log('ping', e.data);
-    }, false);
+//     eventSource.addEventListener('ping', function (e) {
+//         console.log('ping', e.data);
+//     }, false);
 
-    eventSource.addEventListener('posts_updated', function (e) {
-        const notificationSound = new Audio("/msn-sound.wav")
-        notificationSound.play();
-        console.log('posts_updated', e);
-    }, false);
+//     eventSource.addEventListener('posts_updated', function (e) {
+//         const notificationSound = new Audio("/msn-sound.wav")
+//         notificationSound.play();
+//         console.log('posts_updated', e);
+//     }, false);
 
-    return eventSource;
-}
+//     return eventSource;
+// }
 
 // let eventSource = initializeEventSource();
 
