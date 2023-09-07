@@ -209,11 +209,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1693734692,
-        "narHash": "sha256-keZq6t4NhYKt//yS3jKJPIFg8dvfAvLgBonZAUiXU6U=",
+        "lastModified": 1694085476,
+        "narHash": "sha256-oSga04GaICe6ob3lhqFP6PWZapF+hTUD2OreayvxQkk=",
         "owner": "kodeFant",
         "repo": "ihp",
-        "rev": "0690dcde7ac2888dfb6348ec662c495dbc53d8c7",
+        "rev": "f5bc7f165927ca82709f201bdaae893d470e9eac",
         "type": "github"
       },
       "original": {
